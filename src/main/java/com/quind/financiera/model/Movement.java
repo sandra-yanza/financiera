@@ -34,7 +34,7 @@ public class Movement {
         CONSIGNACION,
         RETIRO,
         TRANSFERENCIA
-    };
+    }
   
     
     // Table relations
@@ -83,7 +83,7 @@ public class Movement {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	};
+	}
     
   
 

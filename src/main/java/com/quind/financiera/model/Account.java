@@ -47,13 +47,13 @@ public class Account {
 	public enum AccountType {
         AHORROS,
         CORRIENTE
-    };
+    }
 
     public enum AccountState {
         ACTIVA,
         INACTIVA,
         CANCELADA
-    };
+    }
 
 	// Table relations
     
