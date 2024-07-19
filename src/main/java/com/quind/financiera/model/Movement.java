@@ -1,11 +1,9 @@
 package com.quind.financiera.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,13 +20,12 @@ public class Movement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private MovementType movementType;
+    private String movementType;
 
     @DecimalMin(value = "0.0", inclusive = false)
     private BigDecimal amount;
 
-    private Date movementDate;
+    private LocalDate movementDate;
 
     public enum MovementType {
         CONSIGNACION,
@@ -53,11 +50,11 @@ public class Movement {
 		this.id = id;
 	}
 
-	public MovementType getMovementType() {
+	public String getMovementType() {
 		return movementType;
 	}
 
-	public void setMovementType(MovementType movementType) {
+	public void setMovementType(String movementType) {
 		this.movementType = movementType;
 	}
 
@@ -69,11 +66,11 @@ public class Movement {
 		this.amount = amount;
 	}
 
-	public Date getMovementDate() {
+	public LocalDate getMovementDate() {
 		return movementDate;
 	}
 
-	public void setMovementDate(Date movementDate) {
+	public void setMovementDate(LocalDate movementDate) {
 		this.movementDate = movementDate;
 	}
 

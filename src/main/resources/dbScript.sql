@@ -3,7 +3,6 @@ CREATE DATABASE IF NOT EXISTS financieradb;
 USE financieradb;
 
 -- Client Table
--- select * from tbl_Client
 CREATE TABLE tbl_Client (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_type ENUM('CC', 'CE', 'PP', 'PEP') ,
@@ -35,12 +34,14 @@ CREATE TABLE tbl_Account (
 -- Creating Movement table
 CREATE TABLE tbl_Movement (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    movement_type ENUM('CONSIGNACION', 'RETIRO', 'TRANSFERENCIA') NOT NULL,
+    movement_type VARCHAR(20) NOT NULL,
     amount DECIMAL(15, 2) NOT NULL CHECK (amount >= 0),
     movement_date DATE NOT NULL,
     account_id BIGINT NOT NULL,
     FOREIGN KEY (account_id) REFERENCES tbl_Account(id)
 );
+
+
 
 
 
