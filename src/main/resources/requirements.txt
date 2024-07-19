@@ -5,7 +5,7 @@ OK • La aplicación debe permitir crear un cliente con los siguientes atributo
 OK • La aplicación debe permitir modificar la información del cliente. Cuando se realiza una modificación de información de un cliente, se debe calcular esta fecha de modificación automáticamente, tomando la última fecha que se realiza la modificación.
 OK • La aplicación debe permitir eliminar un cliente que ha sido creado.
 OK • Un cliente no podrá ser creado, ni existir en base de datos si es menor de edad. 
-• Un cliente no podrá ser eliminado si tiene productos vinculados.
+OK• Un cliente no podrá ser eliminado si tiene productos vinculados.
 OK • La fecha de creación debe ser calculada automáticamente al registrar un cliente.
 
 • Requerimientos opcionales:
@@ -14,16 +14,16 @@ OK • La fecha de creación debe ser calculada automáticamente al registrar un
 
 
 Productos (Cuentas) :
-• La aplicación debe permitir crear únicamente dos tipos de productos: cuenta corriente o cuenta de ahorros.
-• Un producto financiero, sólo podrá existir en la base de datos si está vinculado a un cliente de la entidad financiera.
-• Las cuentas corrientes o de ahorro se deben crear con los siguientes atributos como mínimo: id, tipo de cuenta, número de cuenta, estado (activa, inactiva, cancelada), saldo, exenta GMF, fecha de creación, fecha modificación, usuario al que pertenece la cuenta.
-• La cuenta de ahorros no puede tener un saldo menor a $0 (cero).
-• Las cuentas corrientes y de ahorros se pueden activar o inactivar en cualquier momento. 
-• El número de las cuentas corrientes y de ahorros deben ser únicos y generarse automáticamente, la extensión del número de cuenta debe ser de 10 dígitos numéricos. El número de las cuentas ahorro debe iniciar en “53” y el número de las cuentas corriente debe iniciar en “33”.
-• Al crear una cuenta de ahorro esta debe establecerse como activa de forma predeterminada. 
-• Solo se podrán cancelar las cuentas que tengan un saldo igual a $0.
-• La fecha de creación de cada producto debe ser calculada automáticamente al registrar el producto. 
-• El saldo de la cuenta deberá actualizarse al realizar cualquier transacción exitosa.
+OK • La aplicación debe permitir crear únicamente dos tipos de productos: cuenta corriente o cuenta de ahorros.
+OK • Un producto financiero, sólo podrá existir en la base de datos si está vinculado a un cliente de la entidad financiera.
+OK • Las cuentas corrientes o de ahorro se deben crear con los siguientes atributos como mínimo: id, tipo de cuenta, número de cuenta, estado (activa, inactiva, cancelada), saldo, exenta GMF, fecha de creación, fecha modificación, usuario al que pertenece la cuenta.
+OK • La cuenta de ahorros no puede tener un saldo menor a $0 (cero).
+ok • Las cuentas corrientes y de ahorros se pueden activar o inactivar en cualquier momento. 
+OK • El número de las cuentas corrientes y de ahorros deben ser únicos y generarse automáticamente, la extensión del número de cuenta debe ser de 10 dígitos numéricos. El número de las cuentas ahorro debe iniciar en “53” y el número de las cuentas corriente debe iniciar en “33”.
+OK • Al crear una cuenta de ahorro esta debe establecerse como activa de forma predeterminada. 
+OK • Solo se podrán cancelar las cuentas que tengan un saldo igual a $0.
+OK • La fecha de creación de cada producto debe ser calculada automáticamente al registrar el producto. 
+OK • El saldo de la cuenta deberá actualizarse al realizar cualquier transacción exitosa.
 
 
 Transacciones (movimientos financieros):
@@ -33,11 +33,11 @@ Transacciones (movimientos financieros):
 Importante: Se debe implementar las estructuras de persistencia en la base de datos necesaria para que se pueda cumplir con todos los requerimientos funcionales obligatorios.
 
 3. Requerimientos no funcionales:
-• Se deben desarrollar como mínimo un proyecto backend
-• El proyecto Backend deberá ser desarrollado utilizando JAVA.
-• El proyecto debe utilizar una arquitectura hexagonal en lo posible o MVC (Modelo, Vista, Controlador)
-• El proyecto debe utilizar una base de datos de las siguientes opciones SQL SERVER, Oracle, PostgreSQL o MySQL.
-• El proyecto del back se debe generar por capas utilizando al menos las siguientes: entity, service, controller, repository.
+OK• Se deben desarrollar como mínimo un proyecto backend
+OK• El proyecto Backend deberá ser desarrollado utilizando JAVA.
+OK• El proyecto debe utilizar una arquitectura hexagonal en lo posible o MVC (Modelo, Vista, Controlador)
+OK• El proyecto debe utilizar una base de datos de las siguientes opciones SQL SERVER, Oracle, PostgreSQL o MySQL.
+OK• El proyecto del back se debe generar por capas utilizando al menos las siguientes: entity, service, controller, repository.
 
 Test Unitarios
 • La aplicación debe implementar test unitarios utilizando la librería Junit con una cobertur para las capas Service y Controller.

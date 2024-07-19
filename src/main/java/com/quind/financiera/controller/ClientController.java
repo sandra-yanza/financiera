@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quind.financiera.exception.GlobalExceptionHandler;
 import com.quind.financiera.model.Client;
 import com.quind.financiera.service.ClientService;
 
@@ -47,8 +46,9 @@ public class ClientController {
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClientById(@PathVariable Long id) {
 		Client client = clientService.getClientById(id);
-        return ResponseEntity.ok().body(client);
+        return ResponseEntity.ok(client);
     }
+    
 	
 
 }

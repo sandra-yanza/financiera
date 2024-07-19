@@ -1,7 +1,7 @@
 package com.quind.financiera.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -26,25 +26,25 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private AccountType accountType;
+	
+    private String accountType;
+
+	
+    private String state;
 
     @Column(unique = true)
     private String accountNumber;
 
-    @Enumerated(EnumType.STRING)
-    private AccountState state;
-
-    @DecimalMin(value = "0.0", inclusive = false)
+    
     private BigDecimal balance;
 
     private boolean gmfExempt;
 
-    private Date creationDate;
+    private LocalDate creationDate;
 
-    private Date modificationDate;
+    private LocalDate modificationDate;
 	
-	public enum AccountType {
+	public enum AccountType_ {
         AHORROS,
         CORRIENTE
     }
@@ -74,11 +74,11 @@ public class Account {
 		this.id = id;
 	}
 
-	public AccountType getAccountType() {
+	public String getAccountType() {
 		return accountType;
 	}
 
-	public void setAccountType(AccountType accountType) {
+	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
 
@@ -90,11 +90,11 @@ public class Account {
 		this.accountNumber = accountNumber;
 	}
 
-	public AccountState getState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(AccountState state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
@@ -114,19 +114,19 @@ public class Account {
 		this.gmfExempt = gmfExempt;
 	}
 
-	public Date getCreationDate() {
+	public LocalDate getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDate creationDate) {
 		this.creationDate = creationDate;
 	}
 
-	public Date getModificationDate() {
+	public LocalDate getModificationDate() {
 		return modificationDate;
 	}
 
-	public void setModificationDate(Date modificationDate) {
+	public void setModificationDate(LocalDate modificationDate) {
 		this.modificationDate = modificationDate;
 	}
 

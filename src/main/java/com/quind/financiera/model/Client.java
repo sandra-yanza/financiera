@@ -30,18 +30,16 @@ public class Client {
     @Enumerated(EnumType.STRING)
     private IdType idType;
 
-    @NotBlank
+   
     @Size(min = 3)
     private String identificationNumber;
 
-    @NotBlank
+   
     private String name;
-
-    @NotBlank
+    
     private String lastName;
 
     @Email
-    @NotBlank
     private String email;
 
     @Past

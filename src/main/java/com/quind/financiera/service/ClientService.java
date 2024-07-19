@@ -18,21 +18,38 @@ public class ClientService {
 
     public Client createClient(Client client) {
     	
-    	if (client.getBirthDate().isAfter(LocalDate.now().minusYears(18))) {
-            throw new CustomException("El cliente debe ser mayor de edad");
-        }
-    	
-    	if (client.getName().length() < 2) {
-            throw new CustomException("La extensión del nombre del cliente no puede ser menor a dos caracteres");
-        }
-    	
-    	if (client.getLastName().length() < 2) {
-            throw new CustomException("La extensión del apellido del cliente no puede ser menor a dos caracteres");
-        }
+    	validateFieldsClient(client);
     	
         client.setCreationDate(LocalDate.now());
         client.setModificationDate(LocalDate.now());
         return clientRepository.save(client);
+    }
+    
+    private void validateFieldsClient(Client client) {
+    	
+    	if(client.getIdentificationNumber() == null || client.getIdentificationNumber().length() == 0) {
+    		throw new CustomException("El cliente debe tener numero de identificacion");
+    	}
+    	
+    	if (client.getBirthDate() == null) {
+            throw new CustomException("El cliente debe tener fecha de nacimiento");
+        }
+    	
+    	if (client.getBirthDate().isAfter(LocalDate.now().minusYears(18))) {
+            throw new CustomException("El cliente debe ser mayor de edad");
+        }
+    	
+    	if (client.getName() == null || client.getName().length() < 2) {
+            throw new CustomException("La extensión del nombre del cliente no puede ser menor a dos caracteres");
+        }
+    	
+    	if (client.getLastName() == null || client.getLastName().length() < 2) {
+            throw new CustomException("La extensión del apellido del cliente no puede ser menor a dos caracteres");
+        }
+    	
+    	if (client.getEmail() == null || client.getEmail().length() < 2) {
+            throw new CustomException("El cliente debe tener email");
+        }
     }
 
     public Client updateClient(Long id, Client modifyClient) {
@@ -44,6 +61,9 @@ public class ClientService {
         client.setLastName(modifyClient.getLastName());
         client.setEmail(modifyClient.getEmail());
         client.setModificationDate(LocalDate.now());
+        
+        validateFieldsClient(client);
+    	
         return clientRepository.save(client);
     }
 

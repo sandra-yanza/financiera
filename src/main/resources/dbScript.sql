@@ -6,12 +6,12 @@ USE financieradb;
 -- select * from tbl_Client
 CREATE TABLE tbl_Client (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_type ENUM('CC', 'CE', 'PP', 'PEP') NOT NULL,
-    identification_number VARCHAR(30) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    birth_date DATE NOT NULL,
+    id_type ENUM('CC', 'CE', 'PP', 'PEP') ,
+    identification_number VARCHAR(30) ,
+    name VARCHAR(50) ,
+    last_name VARCHAR(50) ,
+    email VARCHAR(50) ,
+    birth_date DATE ,
     creation_date DATE NOT NULL,
     modification_date DATE NOT NULL,
     UNIQUE (identification_number)
@@ -20,10 +20,10 @@ CREATE TABLE tbl_Client (
 -- Creting Account Table
 CREATE TABLE tbl_Account (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    account_type ENUM('AHORROS', 'CORRIENTE') NOT NULL,
+    account_type VARCHAR(10) NOT NULL,
     account_number VARCHAR(10) NOT NULL,
-    state ENUM('ACTIVA', 'INACTIVA', 'CANCELADA') NOT NULL,
-    balance DECIMAL(15, 2) NOT NULL CHECK (balance >= 0),
+    state VARCHAR(10) NOT NULL,
+    balance DECIMAL(15, 2) NOT NULL ,
     gmf_exempt BOOLEAN NOT NULL default 0,
     creation_date DATE NOT NULL,
     modification_date DATE NOT NULL,
@@ -31,8 +31,6 @@ CREATE TABLE tbl_Account (
     FOREIGN KEY (client_id) REFERENCES tbl_Client(id),
     UNIQUE (account_number)
 );
-
--- select * from tbl_Account;
 
 -- Creating Movement table
 CREATE TABLE tbl_Movement (
