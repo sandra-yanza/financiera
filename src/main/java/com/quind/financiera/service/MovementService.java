@@ -65,11 +65,11 @@ public class MovementService {
 				throw new CustomException("El saldo disponible no es suficiente para realizar el retiro");
 			}
 			baln = baln.subtract(movement.getAmount());
-
-			account.setBalance(baln);
-			account.setModificationDate(LocalDate.now());
-			accountRepository.save(account);
 		}
+		account.setBalance(baln);
+		account.setModificationDate(LocalDate.now());
+		accountRepository.save(account);
+
 	}
 
 
@@ -101,13 +101,13 @@ public class MovementService {
 		updateBalanceAccount(credit, receiptAccount);
 		movementRepository.save(credit);
 	}
-	
+
 
 	public Movement getMovementById(Long id) {
 
-        return movementRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Transaccion no existe - id: " + id));
+		return movementRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Transaccion no existe - id: " + id));
 
-    }
+	}
 
 }
