@@ -27,7 +27,7 @@ public class ClientService {
     
     private void validateFieldsClient(Client client) {
     	
-    	if(client.getIdentificationNumber() == null || client.getIdentificationNumber().length() == 0) {
+    	if(client.getIdentificationNumber() == null || client.getIdentificationNumber().isEmpty()) {
     		throw new CustomException("El cliente debe tener numero de identificacion");
     	}
     	
@@ -43,9 +43,9 @@ public class ClientService {
             throw new CustomException("La extensión del nombre del cliente no puede ser menor a dos caracteres");
         }
     	
-    	if (client.getLastName() == null || client.getLastName().length() < 2) {
+    /*	if (client.getLastName() == null || client.getLastName().length() < 2) {
             throw new CustomException("La extensión del apellido del cliente no puede ser menor a dos caracteres");
-        }
+        }*/
     	
     	if (client.getEmail() == null || client.getEmail().length() < 2) {
             throw new CustomException("El cliente debe tener email");
